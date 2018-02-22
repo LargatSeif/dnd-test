@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="col-md-2 border">
+    <span>Side-bar</span>
+    <hr>
+    <div class="menu-item-list" droppable [dropScope]="['4', '2']" (onDrop)="onListDrop($event)" [dragOverClass]="'drag-target-border'">
+
+      <div [draggable] *ngFor="let item of widgets2" [dragClass]="'active'" [dragTransitClass]="'active'" [dragData]="item" [dragScope]="item.width"
+        [dragEnabled]="dragEnabled" [dragHandle]="'.drag-handle'">
+        {{item.name}}
+        <div class="pull-right">
+          <i class="drag-handle fa fa-arrows fa-sm" aria-hidden="true"></i>
+        </div>
+      </div>
+      <hr>
+      <div [draggable] *ngFor="let item of widgets1" [dragClass]="'active'" [dragTransitClass]="'active'" [dragData]="item" [dragScope]="item.width"
+        [dragEnabled]="dragEnabled" [dragHandle]="'.drag-handle'">
+        {{item.name}}
+        <div class="pull-right">
+          <i class="drag-handle fa fa-arrows fa-sm" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <hr>
+
+      <div [draggable] *ngFor="let item of widgets3" [dragClass]="'active'" [dragTransitClass]="'active'" [dragData]="item" [dragScope]="item.width"
+        [dragEnabled]="dragEnabled" [dragHandle]="'.drag-handle'">
+        {{item.name}}
+        <div class="pull-right">
+          <i class="drag-handle fa fa-arrows fa-sm" aria-hidden="true"></i>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="col-md-4 border text-center 1" droppable [dropScope]="'4'" [dragOverClass]="'drag-target-border'" (onDrop)="onCRADrop($event)" >
+    <span>col-md-4 CRA</span>
+    <hr>
+    <div *ngFor="let item of CRA" class="border-item" [draggable] [dragData]="item" [dragScope]="item.width" [dragHandle]="'.drag-handle'">
+      {{item.name}}
+      <div class="pull-right">
+        <i class="drag-handle fa fa-arrows fa-lg" aria-hidden="true"></i>
+      </div>
+    </div>    
+  </div>
+
+  <div class="col-md-4 border text-center 2" droppable [dropScope]="'4'" [dragOverClass]="'drag-target-border'" (onDrop)="onCONGEDrop($event)">
+    <span>col-md-4 CONGE</span>
+    <hr>
+    <div *ngFor="let item of CONGE" class="border-item" [draggable] [dragData]="item" [dragScope]="item.width" [dragHandle]="'.drag-handle'">
+      {{item.name}}
+      <div class="pull-right">
+        <i class="drag-handle fa fa-arrows fa-lg" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-2 border text-center 3" droppable [dropScope]="'2'" [dragOverClass]="'drag-target-border'" (onDrop)="onFRAISDrop($event)">
+    <span>col-md-2 FRAIS</span>
+    <hr>
+    <div *ngFor="let item of FRAIS" class="border-item" [draggable] [dragData]="item" [dragScope]="item.width" [dragHandle]="'.drag-handle'">
+      {{item.name}}
+      <div class="pull-right">
+        <i class="drag-handle fa fa-arrows fa-lg" aria-hidden="true"></i>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-2">
+    <h5>Results = </h5>
+  </div>
+  <div class="col-md-4">
+     <pre> {{ CRA | json }}</pre>
+  </div>
+  <div class="col-md-4">
+      <pre> {{ CONGE | json }}</pre>
+   </div>
+   <div class="col-md-2">
+      <pre> {{ FRAIS | json }}</pre>
+   </div>
+</div>
